@@ -13,6 +13,9 @@
 
 #C:\Users\user\AppData\Local\Programs\Python\Python36\python.exe C:\Users\user\519888.py
 
+# 配置文件 买哪些货币基金
+# 非交易时间不做操作 也是配置文件
+
 import pyautogui
 import time
 from global_hotkeys import register_hotkeys, start_checking_hotkeys
