@@ -47,46 +47,33 @@ while 1:
         # os._exit(0)
     #批量下单
     pyautogui.click(62, 134)
+    time.sleep(0.5)
 
-    time.sleep(0.2)
+    #证券代码
     pyautogui.click(297, 89)
     pyautogui.typewrite('519888')
+    time.sleep(1.5)
 
-
-    time.sleep(0.3)
-    pyautogui.click(242, 184)
-    time.sleep(0.3)
+    #单笔数量
+    pyautogui.click(312, 184)
+    pyautogui.click(312, 187)
     pyautogui.click(312, 186)
-    time.sleep(1.8)
     pyautogui.typewrite('1000')
+    time.sleep(0.4)
 
-
-    #全部
-    #time.sleep(0.1)
-    #pyautogui.click(377, 148)
-
-    # time.sleep(0.1)
-    # pyautogui.click(373, 212)
-    # pyautogui.press('backspace')
-    # pyautogui.press('backspace')
-    # pyautogui.press('backspace')
-    # pyautogui.press('backspace')
-    # time.sleep(0.1)
-    # pyautogui.typewrite('0')
-    # pyautogui.typewrite('0')
-    time.sleep(0.5)
+    #买入数量
     pyautogui.click(373, 212)
     pyautogui.typewrite('10000')
     time.sleep(0.2)
 
-
-
-    time.sleep(0.1)
+    #买入下单
     pyautogui.click(359, 236)
 
-    time.sleep(0.5)
-    pyautogui.click(1036, 616)
     time.sleep(1.5)
+    pyautogui.click(1036, 616)
+    time.sleep(3.9)
+    pyautogui.click(1069, 573)
+    pyautogui.click(1069, 573)
     pyautogui.click(1069, 573)
 
-    time.sleep(2.5)
+    time.sleep(3.3)
