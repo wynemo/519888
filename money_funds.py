@@ -15,6 +15,7 @@
 
 # 配置文件 买哪些货币基金
 # 非交易时间不做操作 也是配置文件
+# C:\Users\admin\AppData\Local\Programs\Python\Python39\Scripts\pyinstaller.exe --onefile money_funds.py
 
 import json
 import os
