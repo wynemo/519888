@@ -9,40 +9,80 @@
 
 
 # 命令行安装
-#pip.exe install -i https://mirrors.aliyun.com/pypi/simple/  pyautogui==0.9.46
+#pip.exe install -i https://mirrors.aliyun.com/pypi/simple/  pyautogui==0.9.46 global-hotkeys
 
-#C:\Users\nemo\AppData\Local\Programs\Python\Python36\python.exe C:\Users\nemo\mysyncthing\519888.py
+#C:\Users\user\AppData\Local\Programs\Python\Python36\python.exe C:\Users\user\519888.py
+
+# 配置文件 买哪些货币基金
+# 非交易时间不做操作 也是配置文件
+# C:\Users\admin\AppData\Local\Programs\Python\Python39\Scripts\pyinstaller.exe --onefile money_funds.py
+
+import json
+import os
+import sys
+import time
 
 import pyautogui
-import time
-import random
+from global_hotkeys import register_hotkeys, start_checking_hotkeys, stop_checking_hotkeys
+
+
+should_exit = 0
+CONFIG_FILE = 'config.json'
+DEFAULT_EXIT_HOTKEY = "control + 7"
+
+def get_script_folder():
+    if getattr(sys, 'frozen', False):  # Check if bundled by PyInstaller
+        # If it's a PyInstaller executable, use the _MEIPASS attribute
+        script_folder = os.path.dirname(sys.executable)
+    else:
+        # Otherwise, use __file__ to get the current script's directory
+        script_folder = os.path.dirname(os.path.abspath(__file__))
+    return script_folder
+
+def check_exit():
+    global should_exit
+    print('exiting....')
+    stop_checking_hotkeys()
+    should_exit = 1
+
+_config_file = os.path.join(get_script_folder(), CONFIG_FILE)
+with open(_config_file) as f:
+    _config = json.loads(f.read())
+    exit_hotkey = _config.get('exit_hotkey', DEFAULT_EXIT_HOTKEY)
+
+# check https://pypi.org/project/global-hotkeys/
+bindings = [
+    [exit_hotkey, None, check_exit, True],
+]
+
+register_hotkeys(bindings)
+
+# Finally, start listening for keypresses
+start_checking_hotkeys()
 
 while 1:
+    if should_exit == 1:
+        sys.exit(0)
+        # os._exit(0)
     #批量下单
     pyautogui.click(62, 134)
     time.sleep(0.5)
+
     #证券代码
     pyautogui.click(297, 89)
-    time.sleep(0.1)
-    i = random.randint(1, 10)
-    if i < 3:
-        pyautogui.typewrite('519878')
-    elif i >= 3 and i < 6:
-        pyautogui.typewrite('519858')
-    else:
-        pyautogui.typewrite('519888')
+    pyautogui.typewrite('519888')
     time.sleep(1.5)
+
     #单笔数量
     pyautogui.click(312, 184)
     pyautogui.click(312, 187)
     pyautogui.click(312, 186)
     pyautogui.typewrite('1000')
-
     time.sleep(0.4)
+
     #买入数量
     pyautogui.click(373, 212)
-    j = str(random.randint(1, 1)*10000)
-    pyautogui.typewrite(j)
+    pyautogui.typewrite('10000')
     time.sleep(0.2)
 
     #买入下单
