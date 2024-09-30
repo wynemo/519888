@@ -16,13 +16,13 @@ jobs:
         uses: JackMcKew/pyinstaller-action-windows@main
         with:
           path: .
-          .spec: 519888.spec
+          spec: 519888.spec
 
       - name: PyInstaller Windows
         uses: JackMcKew/pyinstaller-action-windows@main
         with:
           path: .
-          .spec: 519888_hexin.spec
+          spec: 519888_hexin.spec
 
       - uses: actions/upload-artifact@v4
         with:
