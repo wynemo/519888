@@ -1,0 +1,2 @@
+pyautogui==0.9.46
+global-hotkeys==0.1.7
