@@ -27,5 +27,5 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           path: |
-            exe: dist/windows
-            config: config.json
+            dist/windows
+            config.json
