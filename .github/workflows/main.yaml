@@ -12,6 +12,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
       - uses: actions/checkout@v2
       - name: PyInstaller Windows
@@ -39,3 +42,4 @@ jobs:
           files: |
             dist/windows/
             config.json
+          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
