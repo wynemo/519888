@@ -46,9 +46,13 @@ def check_exit():
     should_exit = 1
 
 _config_file = os.path.join(get_script_folder(), CONFIG_FILE)
-with open(_config_file) as f:
-    _config = json.loads(f.read())
-    exit_hotkey = _config.get('exit_hotkey', DEFAULT_EXIT_HOTKEY)
+try:
+    with open(_config_file) as f:
+        _config = json.loads(f.read())
+except:
+    _config = {}
+
+exit_hotkey = _config.get('exit_hotkey', DEFAULT_EXIT_HOTKEY)
 
 # check https://pypi.org/project/global-hotkeys/
 bindings = [
