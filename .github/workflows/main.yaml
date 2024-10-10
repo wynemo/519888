@@ -35,7 +35,7 @@ jobs:
         run: zip release.zip *.exe config.json
 
       - name: md5
-        run: md5 release.zip
+        run: md5sum release.zip
 
       - name: Release
         uses: softprops/action-gh-release@v2
