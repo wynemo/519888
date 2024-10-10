@@ -42,4 +42,4 @@ jobs:
           files: |
             dist/windows/
             config.json
-          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
