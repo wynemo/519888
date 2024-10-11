@@ -55,7 +55,6 @@ funds = _config.get('funds', ["519888"])
 while 1:
     if should_exit == 1:
         sys.exit(0)
-        # os._exit(0)
     #批量下单
     pyautogui.click(62, 134)
     time.sleep(0.5)
