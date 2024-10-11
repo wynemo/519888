@@ -5,6 +5,7 @@
 import json
 import os
 import sys
+import random
 import time
 
 import pyautogui
@@ -49,6 +50,8 @@ register_hotkeys(bindings)
 # Finally, start listening for keypresses
 start_checking_hotkeys()
 
+funds = _config.get('funds', ["519888"])
+
 while 1:
     if should_exit == 1:
         sys.exit(0)
@@ -59,7 +62,12 @@ while 1:
 
     #证券代码
     pyautogui.click(297, 89)
-    pyautogui.typewrite('519888')
+    if len(funds) == 1:
+        pyautogui.typewrite(funds[0])
+    else:
+        i = random.randint(0, len(funds) - 1)
+        pyautogui.typewrite(funds[i])
+
     time.sleep(1.5)
 
     #单笔数量
