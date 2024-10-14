@@ -20,7 +20,7 @@ pip.exe install -i https://mirrors.aliyun.com/pypi/simple/  pyautogui==0.9.46 gl
 
 ### exe直接运行
 
-[打包好的519888.exe 和 519888_hexin.exe](https://github.com/wynemo/519888/releases/tag/fix-config)
+[打包好的519888.exe 和 519888_hexin.exe](https://github.com/wynemo/519888/releases/download/20241014/release.zip)
 
 ### 背景介绍 & 讲解
 
