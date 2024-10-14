@@ -15,7 +15,12 @@ pip.exe install -i https://mirrors.aliyun.com/pypi/simple/  pyautogui==0.9.46 gl
 
 ### 运行
 
+打开券商软件 点击脚本519888.py 或者用python运行
 `C:\Users\user\AppData\Local\Programs\Python\Python36\python.exe C:\Users\user\519888.py`
+
+### exe直接运行
+
+[打包好的519888.exe 和 519888_hexin.exe](https://github.com/wynemo/519888/releases/tag/fix-config)
 
 ### 背景介绍 & 讲解
 
