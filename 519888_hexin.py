@@ -1,3 +1,4 @@
+from datetime import datetime
 import json
 import os
 import sys
@@ -6,6 +7,8 @@ import random
 
 import pyautogui
 from global_hotkeys import register_hotkeys, start_checking_hotkeys, stop_checking_hotkeys
+
+from util import is_within_time_ranges
 
 should_exit = 0
 CONFIG_FILE = 'config.json'
@@ -50,6 +53,15 @@ funds = _config.get('funds', ["519888"])
 while 1:
     if should_exit == 1:
         sys.exit(0)
+
+    current_time = datetime.now().time()
+    if is_within_time_ranges(current_time):
+        print("当前时间在范围内")
+    else:
+        print("当前时间不在范围内")
+        time.sleep(2)
+        continue
+
     #卖出
     pyautogui.click(70, 101)
     #买入
