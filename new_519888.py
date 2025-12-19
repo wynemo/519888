@@ -1,4 +1,8 @@
 """
+
+python -m pip install pytesseract Pillow lobal_hotkeys opencv-python pyautogui
+
+
 pyautogui
 基金代码 点击  Point(x=245, y=69) 输入 519888
 
